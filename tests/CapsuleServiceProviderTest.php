@@ -98,6 +98,14 @@ class CapsuleServiceProviderTest extends PHPUnit_Framework_TestCase
 
     }
 
+    public function testQueryLogs()
+    {
+        $logs = Capsule::getQueryLog();
+        $this->assertInternalType('array', $logs);
+        $this->assertCount(1, $logs);
+        $this->assertInternalType('string', $logs[0]['query']);
+    }
+
     public function setUp()
     {
         // Register Capsule Service Provider
