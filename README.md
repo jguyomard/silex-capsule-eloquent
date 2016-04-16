@@ -17,7 +17,8 @@ This is a basic configuration with MySQL (Currently, Laravel supports MySQL, Pos
 $app = new Silex\Application();
 
 $app->register(
-    new \JG\Silex\Provider\CapsuleServiceProvider(), [
+    new \JG\Silex\Provider\CapsuleServiceProvider(),
+    [
         'capsule.connections' => [
             'default' => [
                 'driver'    => 'mysql',
@@ -41,7 +42,7 @@ $app->get('/article/{id}', function(Application $app, $id)
     // Rest of your code...
 });
 
-$app->get('/raw/{id}, function(Application $app, $id)
+$app->get('/raw/{id}', function(Application $app, $id)
 {
     $article = Capsule::select('SELECT * FROM article WHERE id = :id', [
         'id' => $id,
@@ -97,7 +98,8 @@ This is a complete configuration example, with multiple connections:
 $app = new Silex\Application();
 
 $app->register(
-    new \JG\Silex\Provider\CapsuleServiceProvider(), [
+    new \JG\Silex\Provider\CapsuleServiceProvider(),
+    [
         'capsule.connections' => [
             'default' => [
                 'driver'    => 'mysql',
@@ -133,8 +135,8 @@ $app->register(
             'setAsGlobal'    => true,
             'bootEloquent'   => true,
             'enableQueryLog' => true,
-        ]
-    ],
+        ],
+    ]
 );
 ```
 
