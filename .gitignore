@@ -1,0 +1,7 @@
+/*.phar
+composer.lock
+/vendor
+
+# IDE
+.idea
+.project

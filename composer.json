@@ -1,0 +1,36 @@
+{
+  "name": "jguyomard/silex-capsule-eloquent",
+  "description": "Capsule/Eloquent Service Provider for Silex 2",
+  "keywords": [
+    "Capsule",
+    "Eloquent",
+    "Laravel",
+    "SQL",
+    "Query"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Julien Guyomard"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "silex/silex": "~2.0@dev",
+    "illuminate/database": "^5.2",
+    "illuminate/events": "^5.2"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "JG\\Silex\\Provider\\": "src/Silex/Provider"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0.x-dev"
+    }
+  },
+  "minimum-stability": "dev"
+}
