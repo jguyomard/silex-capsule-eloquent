@@ -4,8 +4,10 @@ This is a Service Provider for [Silex](http://silex.sensiolabs.org/) 2.0.x-dev t
 
 ## Installation
 
+Note: This Service Provider requires `silex/silex ~2.0@dev`.
+
 ```
-composer require jguyomard/silex-capsule-eloquent
+composer require jguyomard/silex-capsule-eloquent 2.0.x-dev
 ```
 
 ## Usage
