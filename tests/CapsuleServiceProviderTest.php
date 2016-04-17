@@ -6,7 +6,36 @@ class CapsuleServiceProviderTest extends PHPUnit_Framework_TestCase
 {
     const ARTICLE_TITLE = 'foo/bar';
 
+    /**
+     * @var \Silex\Application $app
+     */
     protected $app;
+
+    public function setUp()
+    {
+        // Register Capsule Service Provider
+        $this->app = new \Silex\Application();
+        $this->app->register(
+            new \JG\Silex\Provider\CapsuleServiceProvider(), [
+                'capsule.connections' => [
+                    'default' => [
+                        'driver' => 'sqlite',
+                        'database' => ':memory:',
+                        'prefix' => '',
+                    ]
+                ]
+            ]
+        );
+
+        // Create Database
+        $this->app['capsule']->schema()->create('articles', function ($table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->timestamps();
+        });
+
+        return parent::setUp();
+    }
 
     public function testIsLoaded()
     {
@@ -105,33 +134,9 @@ class CapsuleServiceProviderTest extends PHPUnit_Framework_TestCase
         $this->assertCount(1, $logs);
         $this->assertInternalType('string', $logs[0]['query']);
     }
-
-    public function setUp()
-    {
-        // Register Capsule Service Provider
-        $this->app = new \Silex\Application();
-        $this->app->register(
-            new \JG\Silex\Provider\CapsuleServiceProvider(), [
-                'capsule.connections' => [
-                    'default' => [
-                        'driver' => 'sqlite',
-                        'database' => ':memory:',
-                        'prefix' => '',
-                    ]
-                ]
-            ]
-        );
-
-        // Create Database
-        $this->app['capsule']->schema()->create('articles', function ($table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->timestamps();
-        });
-
-        return parent::setUp();
-    }
 }
 
 // Bouh
-class Article extends \Illuminate\Database\Eloquent\Model {}
+class Article extends \Illuminate\Database\Eloquent\Model
+{
+}
