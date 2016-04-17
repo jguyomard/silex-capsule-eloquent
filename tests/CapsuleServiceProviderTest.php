@@ -7,7 +7,7 @@ class CapsuleServiceProviderTest extends PHPUnit_Framework_TestCase
     const ARTICLE_TITLE = 'foo/bar';
 
     /**
-     * @var \Silex\Application $app
+     * @var \Silex\Application
      */
     protected $app;
 
@@ -22,8 +22,8 @@ class CapsuleServiceProviderTest extends PHPUnit_Framework_TestCase
                         'driver' => 'sqlite',
                         'database' => ':memory:',
                         'prefix' => '',
-                    ]
-                ]
+                    ],
+                ],
             ]
         );
 
@@ -82,7 +82,7 @@ class CapsuleServiceProviderTest extends PHPUnit_Framework_TestCase
     {
         // Insert
         $id = Capsule::table('articles')->insertGetId([
-                'title' => static::ARTICLE_TITLE
+                'title' => static::ARTICLE_TITLE,
             ]
         );
         $this->assertEquals($id, 1);
@@ -124,7 +124,6 @@ class CapsuleServiceProviderTest extends PHPUnit_Framework_TestCase
         // Count
         $count = Article::count();
         $this->assertEquals(0, $count);
-
     }
 
     public function testQueryLogs()

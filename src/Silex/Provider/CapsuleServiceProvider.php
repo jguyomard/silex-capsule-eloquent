@@ -16,38 +16,37 @@ class CapsuleServiceProvider implements ServiceProviderInterface, BootableProvid
      * Register the Capsule Service.
      *
      * @param PimpleContainer $app
-     * @return void
      **/
     public function register(PimpleContainer $app)
     {
         $app['capsule.connectionDefault'] = [
-            'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'port'      => 3306,
-            'database'  => null,
-            'username'  => null,
-            'password'  => null,
-            'charset'   => 'utf8',
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'port' => 3306,
+            'database' => null,
+            'username' => null,
+            'password' => null,
+            'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-            'strict'    => false,
-            'engine'    => null,
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
         ];
 
         $app['capsule.connections'] = [];
 
         $app['capsule.container'] = function (Application $app) {
-            return new CapsuleContainer;
+            return new CapsuleContainer();
         };
 
-        $app['capsule.dispatcher'] = function(Application $app) {
+        $app['capsule.dispatcher'] = function (Application $app) {
             return new Dispatcher($app['capsule.container']);
         };
 
         $app['capsule.options'] = [
-            'setAsGlobal'       => true,
-            'bootEloquent'      => true,
-            'enableQueryLog'    => true,
+            'setAsGlobal' => true,
+            'bootEloquent' => true,
+            'enableQueryLog' => true,
         ];
 
         $app['capsule'] = function (Application $app) {
@@ -86,7 +85,6 @@ class CapsuleServiceProvider implements ServiceProviderInterface, BootableProvid
      * Boot the Capsule Service.
      *
      * @param Application $app
-     * @return void
      **/
     public function boot(Application $app)
     {
