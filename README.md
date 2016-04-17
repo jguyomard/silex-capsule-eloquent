@@ -1,4 +1,8 @@
 # Capsule (and Eloquent) Service Provider for Silex 2
+[![Travis](https://img.shields.io/travis/jguyomard/silex-capsule-eloquent.svg?maxAge=1800&style=flat-square)](https://travis-ci.org/jguyomard/silex-capsule-eloquent)
+[![StyleCI](https://styleci.io/repos/56372806/shield)](https://styleci.io/repos/56372806)
+[![Packagist Pre Release](https://img.shields.io/packagist/vpre/jguyomard/silex-capsule-eloquent.svg?maxAge=1800&style=flat-square)](https://packagist.org/packages/jguyomard/silex-capsule-eloquent)
+[![Licence](https://img.shields.io/packagist/l/jguyomard/silex-capsule-eloquent.svg?maxAge=1800&style=flat-square)](https://github.com/jguyomard/silex-capsule-eloquent/blob/master/LICENCE)
 
 This is a Service Provider for [Silex](http://silex.sensiolabs.org/) 2.0.x-dev that integrates Laravel's [Fluent Query Builder](https://laravel.com/docs/5.2/queries) and [Eloquent ORM](https://laravel.com/docs/5.2/eloquent) via [Capsule](https://github.com/illuminate/database).
 
