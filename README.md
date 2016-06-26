@@ -4,14 +4,14 @@
 [![Packagist Pre Release](https://img.shields.io/packagist/vpre/jguyomard/silex-capsule-eloquent.svg?maxAge=1800&style=flat-square)](https://packagist.org/packages/jguyomard/silex-capsule-eloquent)
 [![Licence](https://img.shields.io/packagist/l/jguyomard/silex-capsule-eloquent.svg?maxAge=1800&style=flat-square)](https://github.com/jguyomard/silex-capsule-eloquent/blob/master/LICENCE)
 
-This is a Service Provider for [Silex](http://silex.sensiolabs.org/) 2.0.x-dev that integrates Laravel's [Fluent Query Builder](https://laravel.com/docs/5.2/queries) and [Eloquent ORM](https://laravel.com/docs/5.2/eloquent) via [Capsule](https://github.com/illuminate/database).
+This is a Service Provider for [Silex](http://silex.sensiolabs.org/) 2.0 that integrates Laravel's [Fluent Query Builder](https://laravel.com/docs/5.2/queries) and [Eloquent ORM](https://laravel.com/docs/5.2/eloquent) via [Capsule](https://github.com/illuminate/database).
 
 ## Installation
 
-Note: This Service Provider requires `silex/silex ~2.0@dev`.
+Note: This Service Provider requires `silex/silex ~2.0`.
 
 ```
-composer require jguyomard/silex-capsule-eloquent 2.0.x-dev
+composer require jguyomard/silex-capsule-eloquent "~2.0"
 ```
 
 ## Usage
