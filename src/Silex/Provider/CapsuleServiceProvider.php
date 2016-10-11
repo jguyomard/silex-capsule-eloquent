@@ -52,6 +52,11 @@ class CapsuleServiceProvider implements ServiceProviderInterface, BootableProvid
         $app['capsule'] = function (Application $app) {
             $capsule = new Capsule($app['capsule.container']);
 
+            // Set the event dispatcher used by Eloquent models...
+            if (!empty($app['capsule.dispatcher'])) {
+                $capsule->setEventDispatcher($app['capsule.dispatcher']);
+            }
+
             // Connections
             foreach ($app['capsule.connections'] as $connectionName => $connectionConfig) {
                 $connectionConfig += $app['capsule.connectionDefault'];
@@ -60,11 +65,6 @@ class CapsuleServiceProvider implements ServiceProviderInterface, BootableProvid
                 if ($app['capsule.options']['enableQueryLog']) {
                     $capsule->getConnection($connectionName)->enableQueryLog();
                 }
-            }
-
-            // Set the event dispatcher used by Eloquent models...
-            if (!empty($app['capsule.dispatcher'])) {
-                $capsule->setEventDispatcher($app['capsule.dispatcher']);
             }
 
             // Make this Capsule instance available globally via static methods...
