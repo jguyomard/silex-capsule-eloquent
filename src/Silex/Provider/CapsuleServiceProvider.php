@@ -35,11 +35,11 @@ class CapsuleServiceProvider implements ServiceProviderInterface, BootableProvid
 
         $app['capsule.connections'] = [];
 
-        $app['capsule.container'] = function (Application $app) {
+        $app['capsule.container'] = function (PimpleContainer $app) {
             return new CapsuleContainer();
         };
 
-        $app['capsule.dispatcher'] = function (Application $app) {
+        $app['capsule.dispatcher'] = function (PimpleContainer $app) {
             return new Dispatcher($app['capsule.container']);
         };
 
@@ -49,7 +49,7 @@ class CapsuleServiceProvider implements ServiceProviderInterface, BootableProvid
             'enableQueryLog' => true,
         ];
 
-        $app['capsule'] = function (Application $app) {
+        $app['capsule'] = function (PimpleContainer $app) {
             $capsule = new Capsule($app['capsule.container']);
 
             // Set the event dispatcher used by Eloquent models...
